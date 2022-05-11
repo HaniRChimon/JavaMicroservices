@@ -9,4 +9,9 @@ class Car {
     private String color;
     private String City;
 
+    public void setDesc(String Desc) {
+    }
+
+    public void setCarID(String id) {
+    }
 }

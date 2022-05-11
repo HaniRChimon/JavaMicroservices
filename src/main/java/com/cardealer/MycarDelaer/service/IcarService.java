@@ -2,6 +2,8 @@ package com.cardealer.MycarDelaer.service;
 
 import com.cardealer.MycarDelaer.dto.Car;
 
+import java.util.List;
+
 public interface IcarService {
     /**
      * fetch a car with a given ID.
@@ -11,6 +13,10 @@ public interface IcarService {
 
     Car fetchById(int id);
 
+    void delete(int id) throws Exception;
+
     Car save(Car car) throws Exception;
+
+    List<Car> fetchAll();
 
 }

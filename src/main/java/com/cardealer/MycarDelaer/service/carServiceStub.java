@@ -2,11 +2,15 @@ package com.cardealer.MycarDelaer.service;
 
 import com.cardealer.MycarDelaer.dao.ICarDAO;
 import com.cardealer.MycarDelaer.dto.Car;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Component
+import java.util.List;
+
+@Service
 public class carServiceStub implements IcarService {
 
+    @Autowired
     private ICarDAO carDAO;
 
     public carServiceStub () {
@@ -18,14 +22,23 @@ public class carServiceStub implements IcarService {
     }
     @Override
     public Car fetchById(int id) {
-        Car car = new Car();
-        car.setDesc("Jeep SRT");
-        car.setCarID("83");
-        return car;
+      Car foundCar = carDAO.fetch(id);
+        return foundCar;
+    }
+
+    @Override
+    public void delete(int id) throws Exception{
+        carDAO.delete(id);
     }
 
     @Override
     public Car save(Car car) throws Exception {
         return carDAO.save(car);
+    }
+
+    @Override
+    public List <Car> fetchAll() {
+        return carDAO.fetchAll();
+
     }
 }

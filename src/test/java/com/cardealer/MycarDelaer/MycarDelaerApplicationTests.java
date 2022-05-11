@@ -6,7 +6,6 @@ import com.cardealer.MycarDelaer.service.IcarService;
 import com.cardealer.MycarDelaer.service.carServiceStub;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
@@ -36,6 +35,13 @@ class MycarDelaerApplicationTests {
 
 
 	private void thenReturnJeepSRT8forID83() {
+	}
+
+	private void whenCarAddedIsJeep(){
+		Car jeep = new Car();
+		jeep.setCarID("83");
+		jeep.setDescription("SRT");
+		Mockito.when(carDAO.fetch(83)).thenReturn(jeep);
 	}
 
 	private void whenSearchCarwithID83() {

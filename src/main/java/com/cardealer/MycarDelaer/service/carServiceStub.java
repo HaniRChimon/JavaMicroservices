@@ -18,6 +18,7 @@ public class carServiceStub implements IcarService {
     }
 
     public carServiceStub(ICarDAO carDAO){
+
         this.carDAO = carDAO;
     }
     @Override

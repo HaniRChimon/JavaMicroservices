@@ -15,7 +15,7 @@ public class CarDAOStub implements ICarDAO {
 
     @Override
     public Car save(Car car) throws Exception {
-        Integer carID = Integer.parseInt(car.getCarId);
+        Integer carID = Integer.parseInt(car.CarId);
         allCars.put(carID, car);
         return car;
     }

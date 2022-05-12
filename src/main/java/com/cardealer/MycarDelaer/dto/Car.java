@@ -4,18 +4,11 @@ import lombok.Data;
 
 public @Data
 class Car {
-    public String getCarId;
+    public String CarId;
     private String model;
     private String year;
     private String color;
     private String City;
+    private String Description;
 
-    public void setDescription(String desc) {
-    }
-
-    public void setCarID(String id) {
-    }
-
-    public void getDescription(String desc) {
-    }
 }

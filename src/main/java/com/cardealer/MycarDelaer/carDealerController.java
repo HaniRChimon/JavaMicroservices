@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,16 +29,28 @@ import java.util.ResourceBundle;
 
 @Controller
 public class carDealerController {
+
     public String id;
     @Autowired
     IcarService carService;
+
+
     /**
      * Handle the root (/) endpoint and return a start page.
      * @return
      */
+
     @RequestMapping("/")
-    public String index() {
-        return "Start";
+    public String index(Model model) {
+        Car car = new Car();
+        car.setDescription("SRT package HEMI V6.7");
+        car.setYear("2014");
+        car.setModel("Jeep");
+        car.setColor("Black");
+        car.setCity("Chicago");
+        car.setCarId("1003");
+        model.addAttribute(car);
+        return "start";
     }
 
     @GetMapping("/cars")

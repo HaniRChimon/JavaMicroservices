@@ -39,7 +39,7 @@ class MycarDelaerApplicationTests {
 
 	private void whenCarAddedIsJeep(){
 		Car jeep = new Car();
-		jeep.setCarID("83");
+		jeep.setCarId("83");
 		jeep.setDescription("SRT");
 		Mockito.when(carDAO.fetch(83)).thenReturn(jeep);
 	}

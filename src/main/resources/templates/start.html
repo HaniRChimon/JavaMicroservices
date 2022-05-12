@@ -8,8 +8,25 @@
     <title>My Car Dealership</title>
 </head>
 <body>
-Cars are cool !!!
-<p th:text ="${car}">
+    <form action="#" th:action="@{/model}" method="GET">
+        <label  for="searchTerm">Search</label><input type="text" name="searchTerm" id="searchTerm">
+        <button name="submit" type="submit" value="0">Search</button>
+
+    </form>
+
+    Cars are cool !!!
+    <p th:text ="${car}">
+
+    <form action="#" th:action="@{/saveCar}" th:object="${car}" method="GET"><br />
+        <lable>Year</lable><input type="text" name="Year" th:field="*{year}"/><br />
+        <lable>Model</lable><input type="text" name="Model" th:field="*{model}"/><br />
+        <lable>Color</lable><input type="text" name="Color" th:field="*{color}"/><br />
+        <lable>City</lable><input type="text" name="City" th:field="*{city}"/><br />
+        <lable>Description</lable><input type="text" name="City" th:field="*{description}"/><br />
+        <lable>Car</lable><input type="text" name="carId" th:field="*{carId}"/>
+        <button name="submit" type="submit" value="0">Submit</button>
+
+    </form>
 
 </body>
 </html>

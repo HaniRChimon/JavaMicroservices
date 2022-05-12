@@ -4,7 +4,6 @@ package com.cardealer.MycarDelaer;
 import com.cardealer.MycarDelaer.dto.Car;
 import com.cardealer.MycarDelaer.service.IcarService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.xml.ResourceEntityResolver;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.ResourceBundle;
 
 /**
  * controller for carDealer endpoints and web UI.
@@ -99,6 +97,16 @@ public class carDealerController {
         return newCar;
     }
 
+    @RequestMapping("/saveCar")
+    public String saveCar (Car car){
+        try {
+            carService.save(car);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "start";
+    }
+
     @DeleteMapping("/car/{id}/")
     public ResponseEntity deleteCar (@PathVariable("id") String Id){
         try {
@@ -110,4 +118,11 @@ public class carDealerController {
         }
 
     }
+
+    @GetMapping("/model")
+    public ResponseEntity searchCars(@RequestParam(value = "searchTerm", required=false, defaultValue = "None") String searchTerm){
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
 }

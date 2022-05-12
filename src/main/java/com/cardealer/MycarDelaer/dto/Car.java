@@ -8,7 +8,7 @@ class Car {
     private String model;
     private String year;
     private String color;
-    private String City;
-    private String Description;
+    private String city;
+    private String description;
 
 }
